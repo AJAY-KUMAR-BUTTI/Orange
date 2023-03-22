@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+       <label for="text">addText</label> <input type="text" id="text" />
+       <labe for="date">Date</labe> <input type="date" id="date" />
+       <div id="task">
+        <li id="tasks">addTasks</li>
+       </div>
+       <input type="submit" onclick="addTask()" />
+    </div>
+
+    <script>
+        const divEle = document.getElementById('task');
+        const text = document.getElementById('text');
+        const date = document.getElementById('date');
+        const tasks = document.getElementById('tasks');
+        function addTask() {
+            const textValue = text.value;
+            const dateValue = date.value;
+            const liEle = document.createElement('li');
+            liEle.innerHTML = `the task name is <b>${textValue}</b> and timestamp is ${dateValue}`
+            divEle.append(liEle);
+            text.value='';
+            date.value=''
+        }
+    </script>
+</body>
+</html>

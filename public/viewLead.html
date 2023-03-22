@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="submit" value="viewLead" onclick="viewDataInfo()" />
+   
+   <div id="data"></div>
+   <button onclick="calling()">call</button>
+    
+   <script>
+        const data = document.getElementById('data');
+
+        async function viewDataInfo() {
+          const response = await fetch('/viewLead');
+          const details = await response.json();
+          data.innerHTML = JSON.stringify(details)
+        }
+    
+    function addDetails() {
+        window.location.assign('addSomeData.html')
+    }
+    function calling() {
+        window.location.assign('addSomeData.html');
+    }
+   </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <label>name</label>
+      <input type="text" placeholder="enter name" name="name" id="name" />
+    </div>
+    <div>
+      <label>email</label>
+      <input type="email" placeholder="enter email" id="email" name="email" />
+    </div>
+    <div>
+      <label>mobile</label>
+      <input
+        type="number"
+        placeholder="mobile number"
+        id="mobile"
+        name="mobile"
+      />
+    </div>
+    <input type="submit" onclick="addLeadForm()" />
+
+    <script>
+      const nameEle = document.getElementById("name");
+      const mobileEle = document.getElementById("mobile");
+      const emailEle = document.getElementById("email");
+      async function addLeadForm() {
+        const name = nameEle.value;
+        const mobile = mobileEle.value;
+        const email = emailEle.value;
+
+        const response = await fetch("/addLead", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: name,
+            mobile: mobile,
+            email: email,
+          }),
+        });
+        if (response) {
+          alert("data added successfully");
+          nameEle.value = '',
+          mobileEle.value = '',
+          emailEle.value = ''
+          window.location.assign('dashboard.html')
+        }
+      }
+    </script>
+  </body>
+</html>

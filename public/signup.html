@@ -56,8 +56,13 @@
                     })
                 })
                 if(response && nameEle.value && emailEle.value && passwordEle.value && confirmPasswordEle.value) {
+                    if (password === confirmPassword) {
                     window.location.assign('login.html');
                 } else {
+                    alert("enter wrong password")
+                }
+                } 
+                else {
                     alert("Enter Details First")
                 }
                 console.log(response)

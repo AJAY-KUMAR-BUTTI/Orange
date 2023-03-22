@@ -11,16 +11,9 @@
 <body>
     <div class="card" style="width: 25rem; height: 20rem;">
         <div class="card-body color display">
-            <div >
-                <div>
-                    <button onclick="addLeadForm()">addLead</button>
-                    <button type="submit" onclick="viewLeadForm()">viewLead</button>
-                </div>
-                
-
-                <div><button onclick="logoutHandler()">logout</button></div>
-           
-            <div id="data"></div>
+            <button onclick="addLeadForm()" class="btn bg-primary text-light">addLead</button> &nbsp;
+            <button type="submit" onclick="viewLeadForm()" class="btn bg-info text-light">viewLead</button> &nbsp;
+            <button onclick="logoutHandler()" class="btn bg-danger text-light">logout</button>
            
         </div>
     </div>
@@ -33,6 +26,7 @@
                 }
             })
             if(response) {
+                alert("please try to login first")
                 window.location.assign('signup.html');
             }
         }
